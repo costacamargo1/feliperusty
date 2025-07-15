@@ -1,55 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Felipe Rusty</title>
-  <style>
-    body {
-      background: #111;
-      color: white;
-      font-family: sans-serif;
-      text-align: center;
-      padding: 2rem;
-    }
-    img {
-      border-radius: 50%;
-      width: 150px;
-    }
-    h1 {
-      margin-top: 1rem;
-    }
-    .links a {
-      display: block;
-      margin: 1rem auto;
-      background: #222;
-      padding: 1rem;
-      width: 80%;
-      border-radius: 10px;
-      color: white;
-      text-decoration: none;
-    }
-    .socials img {
-      width: 32px;
-      margin: 0.5rem;
-    }
-  </style>
-</head>
-<body>
-  <img src="foto-perfil.jpg" alt="Felipe Rusty">
-  <h1>Felipe Rusty</h1>
-  <p>Trampo com [o que ele faz]. Cola aí nos meus grupos, sorteios e redes!</p>
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Instagram, Tiktok, Send, Link, Gift, Pin } from "lucide-react";
 
-  <div class="socials">
-    <a href="https://instagram.com/SEUUSUARIO" target="_blank"><img src="insta-icon.png"></a>
-    <a href="https://tiktok.com/@SEUUSUARIO" target="_blank"><img src="tiktok-icon.png"></a>
-    <a href="https://wa.me/55SEUNUMERO" target="_blank"><img src="whatsapp-icon.png"></a>
-  </div>
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-black text-white flex flex-col items-center p-6">
+      <Image
+        src="/felipe.jpg"
+        alt="Felipe Rusty"
+        width={150}
+        height={150}
+        className="rounded-full mt-12"
+      />
+      <h1 className="text-3xl font-bold mt-4">Felipe Rusty</h1>
+      <p className="text-center text-gray-300 mt-2 max-w-md">
+        Crio conteúdos, organizo sorteios e compartilho links importantes.
+      </p>
 
-  <div class="links">
-    <a href="https://link-do-grupo" target="_blank">🔗 Grupo WhatsApp</a>
-    <a href="https://link-para-sorteio" target="_blank">🎁 Sorteio Atual</a>
-    <a href="https://linktr.ee/SEUNOME" target="_blank">📌 Todos os Links</a>
-  </div>
-</body>
-</html>
+      <div className="flex space-x-4 mt-4">
+        <a href="#"><Instagram className="w-6 h-6" /></a>
+        <a href="#"><Tiktok className="w-6 h-6" /></a>
+        <a href="#"><Send className="w-6 h-6" /></a>
+      </div>
+
+      <div className="flex flex-col gap-4 mt-10 w-full max-w-sm">
+        <Button variant="outline" className="justify-start">
+          <Link className="mr-2" /> Grupo WhatsApp
+        </Button>
+        <Button variant="outline" className="justify-start">
+          <Gift className="mr-2" /> Sorteio Atual
+        </Button>
+        <Button variant="outline" className="justify-start">
+          <Pin className="mr-2" /> Todos os Links
+        </Button>
+      </div>
+    </main>
+  );
+}
